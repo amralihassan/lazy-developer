@@ -1,0 +1,45 @@
+<?php
+
+namespace {{ namespace }};
+//use {{ modelEntityNamespace }};
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use App\Http\Classes\BaseModel;
+
+class {{ class }} extends BaseModel
+{
+    use SoftDeletes;
+    //use {{ class }}Entity;
+
+    protected $guarded = [];
+
+    private static function attributes()
+    {
+        // return [{{ fields }}]
+    }
+
+    public static function fetchAll()
+    {
+        return self::get();
+    }
+
+    public static function fetchById($id)
+    {
+        return self::find($id);
+    }
+
+    public static function _store($request)
+    {
+        return self::firstOrCreate($request->only(self::attributes()));
+    }
+
+    public static function _update($request, $id)
+    {
+        $object = self::findOrFail($id);
+
+        return $object->update($request->only(self::attributes()));
+    }
+
+
+}

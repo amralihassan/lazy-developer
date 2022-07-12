@@ -1,0 +1,169 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Http\Controllers\Controller;
+use {{ useModelNamespace }};
+use {{ useRequestClassNamespace }};
+use {{ useExportClassNamespace }};
+use {{ useImportClassNamespace }};
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
+
+class {{ class }} extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('permission:{{ viewPermission }}', ['only' => ['index']]);
+        $this->middleware('permission:{{ addPermission }}', ['only' => ['create', 'store']]);
+        $this->middleware('permission:{{ editPermission }}', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:{{ deletePermission }}', ['only' => ['destroy']]);
+        $this->middleware('permission:{{ importPermission }}', ['only' => ['import']]);
+        $this->middleware('permission:{{ exportPermission }}', ['only' => ['export']]);
+    }
+
+    public function index()
+    {
+        if (request()->ajax()) {
+            $data = {{ modelName }}::fetchAll();
+
+            return $this->dataTable($data);
+        }
+        $data = $this->config();
+
+        return view('{{ indexView }}', compact('data'));
+    }
+
+    private function config()
+    {
+        return [
+            'page_title' => '{{ indexPageTitle }}',
+            'create_button_name' => '{{ createButtonName }}',
+            'delete_button_name' => '{{ deleteButtonName }}',
+            'import_button_name' => '{{ importButtonName }}',
+            'export_button_name' => '{{ exportButtonName }}',
+            'route_index' => '{{ routeIndex }}',
+            'route_create' => '{{ routeCreate }}',
+            'route_destroy' => '{{ routeDestroy }}',
+            'route_import' => '{{ routeImport }}',
+            'route_export' => '{{ routeExport }}',
+            'create_permission_name' => '{{ addPermission }}',
+            'import_permission_name' => '{{ importPermission }}',
+            'export_permission_name' => '{{ exportPermission }}',
+            'delete_permission_name' => '{{ deletePermission }}',
+            'script_path' => '{{ scriptPathFile }}',
+            'columns_names' => $this->columnsTitles(),
+            'columns' => '{{ dataTableColumns }}',
+        ];
+    }
+
+    private function columnsTitles()
+    {
+        return '{{ columnsTitles }}';
+    }
+
+    private function dataTable($data)
+    {
+        return datatables($data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($data) {
+                $edit = permission('{{ editPermission }}') ? '<button class="btn btn-sm btn-white btn-svg" onclick="location.href=`' . route('{{ routeEdit }}', $data->id) . '`" type="button">' . Edit . '</button>' : '';
+
+                $delete = permission('{{ deletePermission }}') ? '<button class="btn btn-sm btn-white btn-svg" onclick="deleteRow(' . $data->id . ')" type="button"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 9h8v10H8z" opacity=".3"/><path d="M15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"/></svg></button>' : '';
+                // return $edit . $delete;
+                return '
+                <td class="align-middle">
+                    <div class="btn-group align-top">
+                        ' . $edit . '
+                        ' . $delete . '
+                    </div>
+                </td>
+                ';
+            })
+            ->addColumn('check', function ($data) {
+                return '
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input "id="checkbox' . $data->id . '" name="id[]" value="' . $data->id . '">
+                    <span class="custom-control-label"></span>
+                </label>';
+            })
+            ->rawColumns(['action', 'check'])
+            ->make(true);
+    }
+
+    public function create()
+    {
+        $create = true;
+        ${{ objectClassName }} = new {{ modelName }}();
+        $page_title = '{{ createPageTitle }}';
+        $main_title = '{{ mainTitle }}';
+        $route_cancel = '{{ routeIndex }}';
+        $route_store = '{{ routeStore }}';
+        $form_path = '{{ formPath }}';
+
+        return view(
+            '{{ createView }}',
+            compact('create', '{{ objectClassName }}', 'page_title', 'route_cancel', 'route_store', 'form_path', 'main_title')
+        );
+    }
+
+    public function store({{ modelRequest }} $request)
+    {
+        {{ modelName }}::_store($request);
+
+        return redirect()->route('{{ routeIndex }}')->with('success', 'Saved Successfully');
+    }
+
+    public function edit($id)
+    {
+        $edit = true;
+        ${{ objectClassName }} = {{ modelName }}::find($id);
+        $page_title = '{{ editPageTitle }}';
+        $main_title = '{{ mainTitle }}';
+        $route_cancel = '{{ routeIndex }}';
+        $route_update = '{{ routeUpdate }}';
+        $form_path = '{{ formPath }}';
+
+        return view(
+            '{{ editView }}',
+            compact('edit', 'id', '{{ objectClassName }}', 'page_title', 'route_cancel', 'route_update', 'form_path', 'main_title')
+        );
+    }
+
+    public function update({{ modelRequest }} $request, $id)
+    {
+        {{ modelName }}::_update($request, $id);
+
+        return redirect()->route('{{ routeIndex }}')->with('success', 'Data updated successfully');
+    }
+
+    public function destroy()
+    {
+        if (request()->ajax()) {
+            if (request()->has('id')) {
+                $status = {{ modelName }}::_destroy();
+            }
+        }
+
+        return response(['status' => $status]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new {{ modelClassExport }}(), '{{ exportModelFilename }}.xlsx');
+    }
+
+    public function import()
+    {
+        try {
+            Excel::import(new {{ modelClassImport }}(), request()->file('file'));
+
+            return back()->with('success', 'Data imported successfully');
+        } catch (Exception $ex) {
+            Log::error($ex->getMessage());
+
+            return redirect()->back()->with('error', 'Something went wrong!, Data not imported successfully');
+        }
+    }
+}

@@ -1,0 +1,8 @@
+.search-box{
+    width:500%;
+}
+.ps__rail-x, .ps__thumb-x{
+    display: none!important;
+}
+.hidden{display:none}
+
