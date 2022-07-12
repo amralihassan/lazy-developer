@@ -9,12 +9,9 @@
             "homepage": "https://.bakerysoft.net"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "keywords": [
-        "Laravel",        
-        "crud",
-        "crud generator",
-        "laravel crud generator"
+        "bakery soft laravel crud generator"
     ],
     "require": {
         "php": ">=5.4.0"        
