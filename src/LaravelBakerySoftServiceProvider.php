@@ -72,8 +72,8 @@ class LaravelBakerySoftServiceProvider extends ServiceProvider
       __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/script-file.blade.php'),
 
       __DIR__ . '/../resources/views/bakery-soft-dashboard.blade.php' => base_path('resources/views/vendor/bakerysoft/bakery-soft-dashboard.blade.php'),
-      __DIR__ . '/../resources/views/generate-crud.blade.php' => base_path('resources/views/vendor/bakerysoft/generate-crud.blade.php'),
-      __DIR__ . '/../resources/views/packages.blade.php' => base_path('resources/views/vendor/bakerysoft/packages.blade.php'),
+      __DIR__ . '/../resources/views/generate-crud.blade.php'         => base_path('resources/views/vendor/bakerysoft/generate-crud.blade.php'),
+      __DIR__ . '/../resources/views/packages.blade.php'              => base_path('resources/views/vendor/bakerysoft/packages.blade.php'),
     ]);
   }
 }
