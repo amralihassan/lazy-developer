@@ -33,7 +33,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/bakerysoft/css/dashboard.css') }}">
 </head>
 
 <body>
