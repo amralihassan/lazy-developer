@@ -155,7 +155,7 @@ class BSMigrationProcess
     private function getMigrationCreateStubContent()
     {
         // save the content into variable
-        return File::get($this->base_path('BackerySoft/BSMigrate-create.stub'));
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/BSMigrate-create.stub'));
     }
 
     private function base_path($path = '')

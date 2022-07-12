@@ -61,7 +61,7 @@ class BSRequestProcess
     private function getRequestStubContent()
     {
         // save the content into variable
-        return File::get($this->base_path('BackerySoft/BSRequest.stub'));
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/BSRequest.stub'));
     }
 
     private function base_path($path = '')

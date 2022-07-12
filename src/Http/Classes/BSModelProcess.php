@@ -60,7 +60,7 @@ class BSModelProcess
     private function getModelStubContent()
     {
         // save the content into variable
-        return File::get($this->base_path('BackerySoft/BSModel.stub'));
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/BSModel.stub'));
     }
 
     private function base_path($path = '')

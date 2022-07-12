@@ -442,7 +442,7 @@ class BSControllerProcess
     private function getControllerStubContent()
     {
         // save the content into variable
-        return File::get($this->base_path('BackerySoft/BSController.stub'));
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/BSController.stub'));
     }
 
     private function generateController($controllerNamespace)
