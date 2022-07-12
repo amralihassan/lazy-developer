@@ -56,22 +56,24 @@ class LaravelBakerySoftServiceProvider extends ServiceProvider
       __DIR__ . '/../config/packages.php' => config_path('packages.php'),
     ], 'packages.config');
 
-    $this->publishes([
-      __DIR__ . '/stubs/' => base_path('resources/bakery-soft/stubs/'),
-    ]);
+    // $this->publishes([
+    //   __DIR__ . '/stubs/' => base_path('resources/bakery-soft/stubs/'),
+    // ]);
 
 
     $this->publishes([
       __DIR__ . '/../assets/app-assets'     => base_path('public/app-assets/*'),
       __DIR__ . '/../assets/assets-dashboard' => base_path('public/assets-dashboard/*'),
-      __DIR__ . '/../resources/template' => base_path('resources/views/vendor/bakery-soft/template/config.blade.php'),
-      __DIR__ . '/../resources/template' => base_path('resources/views/vendor/bakery-soft/template/index.blade.php'),
-      __DIR__ . '/../resources/template' => base_path('resources/views/vendor/bakery-soft/template/create.blade.php'),
-      __DIR__ . '/../resources/template' => base_path('resources/views/vendor/bakery-soft/template/edit.blade.php'),
-      __DIR__ . '/../resources/template' => base_path('resources/views/vendor/bakery-soft/template/script-file.blade.php'),
-      __DIR__ . '/../resources' => base_path('resources/views/vendor/bakery-soft/bakery-soft-dashboard.blade.php'),
-      __DIR__ . '/../resources' => base_path('resources/views/vendor/bakery-soft/generate-crud.blade.php'),
-      __DIR__ . '/../resources' => base_path('resources/views/vendor/bakery-soft/packages.blade.php'),
+
+      __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/config.blade.php'),
+      __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/index.blade.php'),
+      __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/create.blade.php'),
+      __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/edit.blade.php'),
+      __DIR__ . '/../resources/views/template/' => base_path('resources/views/vendor/bakerysoft/template/script-file.blade.php'),
+
+      __DIR__ . '/../resources/views/bakery-soft-dashboard.blade.php' => base_path('resources/views/vendor/bakery-soft/bakery-soft-dashboard.blade.php'),
+      __DIR__ . '/../resources/views/generate-crud-dashboard.blade.php' => base_path('resources/views/vendor/bakery-soft/generate-crud.blade.php'),
+      __DIR__ . '/../resources/views/packages.blade.php' => base_path('resources/views/vendor/bakery-soft/packages.blade.php'),
     ]);
   }
 }
