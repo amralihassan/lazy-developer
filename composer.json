@@ -1,7 +1,6 @@
 {
     "name": "bakery-soft/crud-generator",
-    "description": "Create Dashboard and auto generate crud",
-    "type": "composer-plugin",
+    "description": "Create Dashboard and auto generate crud",    
     "license": "MIT",
     "authors": [
         {
@@ -9,8 +8,7 @@
             "email": "amr.meghaed@bakerysoft.net",
             "homepage": "https://.bakerysoft.net"
         }
-    ],
-    "minimum-stability": "dev",
+    ],    
     "keywords": [
         "Laravel",        
         "crud",
