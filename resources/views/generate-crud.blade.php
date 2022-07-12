@@ -10,7 +10,7 @@
                     group has a validation state that can be triggered by attempting to submit the form without completing
                     it.</p> --}}
             </div>
-            <form action="{{ route('generate') }}" method="post">
+            <form action="{{ url('/bakery-soft/generate') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
