@@ -8,7 +8,8 @@
             "email": "amr.meghaed@bakerysoft.net",
             "homepage": "https://.bakerysoft.net"
         }
-    ],    
+    ],
+    "minimum-stability": "stable",
     "keywords": [
         "Laravel",        
         "crud",
