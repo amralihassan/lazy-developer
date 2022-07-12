@@ -1,4 +1,4 @@
-@extends('bakerysoft-dashboard')
+@extends('vendor.bakerysoft.bakerysoft-dashboard')
 @section('content')
     <div class="container">
         <main>
