@@ -86,8 +86,67 @@ class BakerySoftController extends Controller
     {
         shell_exec('cd .. && ' . $this->composerRequire . config('packages.ui'));
         shell_exec('cd .. && ' .  config('packages.auth'));
+
+        // add dashboard Controller
+        $this->createDashboardController();
+
+        // add auth routes
+        $this->appendAuthRoutes();
+
+        // add dashboard routes
+        $this->appendDashboardRoutes();
+
+        // clear route cache
+        Artisan::call('route:cache');
+
         return redirect()->back()->with('success', 'Saved Successfully');
     }
+
+    private function createDashboardController()
+    {
+        $dashboard_controller_path = $this->base_path('app/Http/Controllers/DashboardController.php');
+        touch($dashboard_controller_path);
+        File::append($dashboard_controller_path, $this->dashboardControllerContent());
+    }
+
+    private function appendAuthRoutes()
+    {
+        $auth_path = $this->base_path('routes/auth.php');
+        touch($auth_path);
+        // // add auth routes
+        File::put($auth_path, $this->authRoutes());
+        // // include auth file in web route
+        File::append($this->base_path('routes/web.php'), "\n" . "require __DIR__ . '/auth.php';" . "\n");
+    }
+
+    private function appendDashboardRoutes()
+    {
+        // create new file route for dashboard
+        $dashboard_path = $this->base_path('routes/app-routes.php');
+        touch($dashboard_path);
+
+        // prepare dashboard routes file
+        File::append($dashboard_path, "<?php");
+        File::append($dashboard_path, "\n" . "use Illuminate\Support\Facades\Route;" . "\n");
+
+        File::append($this->base_path('routes/web.php', $this->authRoutes()), $this->dashboardRoutes());
+    }
+
+    private function dashboardControllerContent()
+    {
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/DashboardController.stub'));
+    }
+
+    private function dashboardRoutes()
+    {
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/dashboard-routes.stub'));
+    }
+
+    private function authRoutes()
+    {
+        return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/auth.stub'));
+    }
+
 
     public function installExcel()
     {

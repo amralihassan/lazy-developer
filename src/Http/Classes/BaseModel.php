@@ -1,12 +1,12 @@
 <?php
 
-namespace BakerySoft\LaravelBakerySoft\Http\Classes;
+namespace App\Http\Classes;
 
 use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {
-    public static function _destroy($imagePath = null): bool|int
+    public static function _destroy($imagePath = null)
     {
         self::removeImage($imagePath, request('id')); // remove image if exists
         if (!is_array(request('id'))) {
@@ -15,7 +15,7 @@ class BaseModel extends Model
         return self::deleteMultiRow($imagePath);
     }
 
-    public static function deleteMultiRow($imagePath): bool
+    public static function deleteMultiRow($imagePath)
     {
         foreach (request('id') as  $value) {
             if ($value['name'] == 'id[]') {
@@ -26,7 +26,7 @@ class BaseModel extends Model
         return true;
     }
 
-    public static function convertPostToArray(): array
+    public static function convertPostToArray()
     {
         return explode('&', request()->all()['data']);
     }

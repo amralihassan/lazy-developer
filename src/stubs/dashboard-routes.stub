@@ -1,0 +1,7 @@
+
+Route::prefix('dashboard')->middleware(['web'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    //dashboard
+    require __DIR__ . '/app-routes.php';
+});
