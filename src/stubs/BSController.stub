@@ -15,12 +15,12 @@ class {{ class }} extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:{{ viewPermission }}', ['only' => ['index']]);
-        $this->middleware('permission:{{ addPermission }}', ['only' => ['create', 'store']]);
-        $this->middleware('permission:{{ editPermission }}', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:{{ deletePermission }}', ['only' => ['destroy']]);
-        $this->middleware('permission:{{ importPermission }}', ['only' => ['import']]);
-        $this->middleware('permission:{{ exportPermission }}', ['only' => ['export']]);
+        // $this->middleware('permission:{{ viewPermission }}', ['only' => ['index']]);
+        // $this->middleware('permission:{{ addPermission }}', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:{{ editPermission }}', ['only' => ['edit', 'update']]);
+        // $this->middleware('permission:{{ deletePermission }}', ['only' => ['destroy']]);
+        // $this->middleware('permission:{{ importPermission }}', ['only' => ['import']]);
+        // $this->middleware('permission:{{ exportPermission }}', ['only' => ['export']]);
     }
 
     public function index()
