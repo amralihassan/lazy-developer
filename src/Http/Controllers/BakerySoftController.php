@@ -10,6 +10,7 @@ use BakerySoft\LaravelBakerySoft\Http\Classes\BSRouteProcess;
 use BakerySoft\LaravelBakerySoft\Http\Classes\BSRequestProcess;
 use BakerySoft\LaravelBakerySoft\Http\Classes\BSMigrationProcess;
 use BakerySoft\LaravelBakerySoft\Http\Classes\BSControllerProcess;
+use Illuminate\Support\Facades\Artisan;
 
 class BakerySoftController extends Controller
 {
