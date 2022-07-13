@@ -145,7 +145,7 @@
 
 @section('scripts')
     {{-- columns - route --}}
-    @include('template.script', [
+    @include('vendot.bakerysoft.template.script', [
         'id' => isset($data['id']) ? $data['id'] : null,
         'route' => $data['route_index'],
         'columns' => $data['columns'],
