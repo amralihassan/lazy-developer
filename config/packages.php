@@ -10,7 +10,7 @@ return [
     'laratrust_name' => 'santigarcor/laratrust',
 
     // Install packages
-    'ui' => 'laravel/ui',
+    'ui' => '"laravel/ui":"^3.4"',
     'auth' => 'php artisan ui bootstrap --auth',
     'excel' => '"maatwebsite/excel":"^3.1"',
     'image' => '"intervention/image":"^2.7"',

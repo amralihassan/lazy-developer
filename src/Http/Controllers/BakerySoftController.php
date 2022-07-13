@@ -127,7 +127,7 @@ class BakerySoftController extends Controller
         touch($dashboard_path);
 
         // prepare dashboard routes file
-        File::append($dashboard_path, "<?php");
+        File::put($dashboard_path, "<?php");
         File::append($dashboard_path, "\n" . "use Illuminate\Support\Facades\Route;" . "\n");
 
         File::append($this->base_path('routes/web.php', $this->authRoutes()), $this->dashboardRoutes());
