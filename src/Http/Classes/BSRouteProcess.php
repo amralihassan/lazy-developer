@@ -24,7 +24,7 @@ class BSRouteProcess extends BSControllerProcess
 
     public function createRoutes()
     {
-        $webRoute = $this->base_path('routes/web.php');
+        $webRoute = $this->base_path('routes/app-routes.php');
         if (!empty($this->routeGroupPrefix) || !empty($this->routeGroupNamespace)) {
             $this->group($webRoute);
         } else {
