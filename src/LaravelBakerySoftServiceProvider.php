@@ -62,8 +62,8 @@ class LaravelBakerySoftServiceProvider extends ServiceProvider
 
 
     $this->publishes([
-      __DIR__ . '/../assets/app-assets'     => base_path('public/app-assets/*'),
-      __DIR__ . '/../assets/assets-dashboard' => base_path('public/assets-dashboard/*'),
+      __DIR__ . '/../assets/app-assets'     => base_path('public/app-assets/'),
+      __DIR__ . '/../assets/assets-dashboard' => base_path('public/assets-dashboard/'),
 
       __DIR__ . '/../assets/css/dashboard.css' => public_path('vendor/bakerysoft/css/dashboard.css'),
       __DIR__ . '/../assets/images/logo.jpg' => public_path('vendor/bakerysoft/images/logo.jpg'),
