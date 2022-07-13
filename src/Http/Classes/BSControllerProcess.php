@@ -105,7 +105,7 @@ class BSControllerProcess
     {
         $this->controllerStub = str_replace(
             '{{ editView }}',
-            'template.edit',
+            'vendor.bakerysoft.template.edit',
             $this->controllerStub
         );
         return $this;
@@ -115,7 +115,7 @@ class BSControllerProcess
     {
         $this->controllerStub = str_replace(
             '{{ createView }}',
-            'template.create',
+            'vendor.bakerysoft.template.create',
             $this->controllerStub
         );
         return $this;
@@ -285,7 +285,7 @@ class BSControllerProcess
     {
         $this->controllerStub = str_replace(
             '{{ indexView }}',
-            'template.index',
+            'vendor.bakerysoft.template.index',
             $this->controllerStub
         );
         return $this;
