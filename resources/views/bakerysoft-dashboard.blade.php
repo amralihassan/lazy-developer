@@ -65,13 +65,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/bakery-soft/install/packages') }}">
+                            <a class="nav-link" href="{{ url('/bakerysoft/install/packages') }}">
                                 <span data-feather="file"></span>
                                 Install Packages
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('bakery-soft/generate-crud') }}">
+                            <a class="nav-link" href="{{ url('bakerysoft/generate-crud') }}">
                                 <span data-feather="file"></span>
                                 Generate CRUD
                             </a>

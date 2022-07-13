@@ -12,7 +12,7 @@
                 it.</p> --}}
             </div>
 
-            <form action="{{ url('bakery-soft/install/laravel/ui') }}" method="post">
+            <form action="{{ url('bakerysoft/install/laravel/ui') }}" method="post">
                 @csrf
                 <h4>Laravel/ui</h4>
                 <p>
@@ -32,7 +32,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakery-soft/install/yajra') }}" method="post">
+            <form action="{{ url('bakerysoft/install/yajra') }}" method="post">
                 @csrf
                 <h4>jQuery DataTables API for Laravel</h4>
                 <p>
@@ -50,7 +50,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakery-soft/install/laratrust') }}" method="post">
+            <form action="{{ url('bakerysoft/install/laratrust') }}" method="post">
                 @csrf
                 <h4>Laratrust</h4>
                 <p>
@@ -68,7 +68,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakery-soft/install/image') }}" method="post">
+            <form action="{{ url('bakerysoft/install/image') }}" method="post">
                 @csrf
                 <h4>Intervention Image</h4>
                 <p>
@@ -87,7 +87,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakery-soft/install/realrashid') }}" method="post">
+            <form action="{{ url('bakerysoft/install/realrashid') }}" method="post">
                 @csrf
                 <h4>SweetAlert</h4>
                 <p>
@@ -105,7 +105,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakery-soft/install/excel') }}" method="post">
+            <form action="{{ url('bakerysoft/install/excel') }}" method="post">
                 @csrf
                 <h4>Laravel Excel</h4>
                 <p>
