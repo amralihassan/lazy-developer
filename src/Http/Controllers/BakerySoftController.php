@@ -107,7 +107,7 @@ class BakerySoftController extends Controller
     {
         $dashboard_controller_path = $this->base_path('app/Http/Controllers/DashboardController.php');
         touch($dashboard_controller_path);
-        File::append($dashboard_controller_path, $this->dashboardControllerContent());
+        File::put($dashboard_controller_path, $this->dashboardControllerContent());
     }
 
     private function appendAuthRoutes()
