@@ -57,7 +57,7 @@ class BakerySoftController extends Controller
 
     public function index()
     {
-        return view('vendor/bakerysoft/bakerysoft-dashboard');
+        return view('bakerysoft::bakerysoft-dashboard');
     }
 
     public function packages()
@@ -80,7 +80,7 @@ class BakerySoftController extends Controller
         $yajra['installed'] = !empty(shell_exec('cd .. && composer show ' . config('packages.yajra_name'))) ? true : false;
         $yajra['package'] = $this->composerRequire . config('packages.yajra');
 
-        return view('vendor/bakerysoft/packages', compact('laratrust', 'excel', 'image', 'realrashid', 'yajra', 'ui'));
+        return view('bakerysoft::packages', compact('laratrust', 'excel', 'image', 'realrashid', 'yajra', 'ui'));
     }
 
     public function installUi()
@@ -148,7 +148,6 @@ class BakerySoftController extends Controller
         return File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/auth.stub'));
     }
 
-
     public function installExcel()
     {
         shell_exec('cd .. && ' . $this->composerRequire . config('packages.excel'));
@@ -181,7 +180,7 @@ class BakerySoftController extends Controller
 
     public function loadCrud()
     {
-        return view('vendor/bakerysoft/generate-crud');
+        return view('bakerysoft::generate-crud');
     }
 
     public function generate()
