@@ -22,12 +22,12 @@
             </div>
             <div class="user-info">
                 @auth
-                <h5 class=" mb-1 font-weight-bold">{{ authInfo()->full_name }}</h5>
+                    <h5 class=" mb-1 font-weight-bold">{{ authInfo()->full_name }}</h5>
 
                 @endauth
 
                 @guest
-                <h5 class=" mb-1 font-weight-bold">John</h5>
+                    <h5 class=" mb-1 font-weight-bold">John</h5>
 
                 @endguest
                 <span class="text-muted app-sidebar__user-name text-sm">App Developer</span>
@@ -37,7 +37,7 @@
     <ul class="side-menu">
         {{-- dashboard --}}
         <li class="slide {{ request()->segment(2) == 'home' ? 'active' : '' }}">
-            <a class="side-menu__item" href="{{route('dashboard')}}">
+            <a class="side-menu__item" href="{{ route('dashboard') }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="26"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -48,7 +48,8 @@
             </a>
         </li>
 
-
+        {{-- tabs --}}
+        @include('dashboard.layouts.tabs')
 
     </ul>
 
