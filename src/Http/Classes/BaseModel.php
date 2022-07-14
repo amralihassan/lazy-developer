@@ -35,4 +35,13 @@ class BaseModel extends Model
     {
         return explode('=', $post)[1];
     }
+
+    public static function removeImage($imagePath, $id)
+    {
+        if (empty($imagePath)) {
+            return;
+        }
+        $object = self::find($id);
+        deleteFile($imagePath . $object->image);
+    }
 }
