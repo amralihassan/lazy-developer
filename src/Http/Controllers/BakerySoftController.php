@@ -249,7 +249,8 @@ class BakerySoftController extends Controller
             ->replaceModelClassExport()
             ->replaceModelClassImport()
             ->replaceExportModelFilename()
-            ->replaceColumnsTitles();
+            ->replaceColumnsTitles()
+            ->replaceDataTableColumns();
 
         // insert backer soft controller content to new controller
         File::put($this->getOldController(), $this->bsControllerProcess->controllerStub);

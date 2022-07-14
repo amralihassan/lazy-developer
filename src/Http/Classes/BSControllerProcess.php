@@ -44,6 +44,27 @@ class BSControllerProcess
         $this->loadStubs();
     }
 
+    public function replaceDataTableColumns()
+    {
+        $this->controllerStub = str_replace(
+            '{{ dataTableColumns }}',
+            $this->dataTableColumns(),
+            $this->controllerStub
+        );
+        return $this;
+    }
+
+    private function dataTableColumns()
+    {
+        $rows = 'check,DT_RowIndex,';
+        for ($i = 0; $i < count($this->columnsTitles); $i++) {
+            $rows .=  $this->columnsTitles[$i];
+        }
+        $rows .= ',action';
+
+        return $rows;
+    }
+
     public function replaceColumnsTitles()
     {
         $this->controllerStub = str_replace(
