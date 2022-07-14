@@ -231,6 +231,7 @@ class BakerySoftController extends Controller
             ->replaceExportButtonName()
             ->replaceRouteIndex()
             ->replaceRouteCreate()
+            ->replaceRouteEdit()
             ->replaceRouteDestroy()
             ->replaceRouteImport()
             ->replaceRouteExport()
@@ -247,7 +248,8 @@ class BakerySoftController extends Controller
             ->replaceRouteUpdate()
             ->replaceModelClassExport()
             ->replaceModelClassImport()
-            ->replaceExportModelFilename();
+            ->replaceExportModelFilename()
+            ->replaceColumnsTitles();
 
         // insert backer soft controller content to new controller
         File::put($this->getOldController(), $this->bsControllerProcess->controllerStub);

@@ -20,6 +20,7 @@ class BSControllerProcess
     public $modelNamespace;
     public $controllerName;
     public $viewPath;
+    public $columnsTitles;
 
 
 
@@ -27,6 +28,8 @@ class BSControllerProcess
     {
         $this->modelName = ucfirst($data['modelName']);
         $this->setControllerName($data['modelName']);
+
+        $this->columnsTitles = $data['field_name'];
 
         // auto generate controller
         $this->generateController($data['controllerNamespace']);
@@ -39,6 +42,39 @@ class BSControllerProcess
 
         // load controller stub
         $this->loadStubs();
+    }
+
+    public function replaceColumnsTitles()
+    {
+        $this->controllerStub = str_replace(
+            '{{ columnsTitles }}',
+            $this->columnsTitles(),
+            $this->controllerStub
+        );
+        return $this;
+    }
+
+    private function columnsTitles()
+    {
+        $rows = '<th style="width:40px">
+                    <label class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="example-checkbox1" id="checkbox0">
+                        <span class="custom-control-label"></span>
+                    </label>
+                </th>
+                <th>#</th>' . "\n";
+        for ($i = 0; $i < count($this->columnsTitles); $i++) {
+            $rows .=  "\t" . "\t" . "\t" . "\t" . '<th>' . $this->prepareColumnName($i) . '</th>' . "\n";
+        }
+        $rows .=  "\t" . "\t" . "\t" . "\t" .  '<th>Action</th>';
+        return $rows;
+    }
+
+    private function prepareColumnName($i)
+    {
+        $columnName =  str_replace('_id', '', $this->columnsTitles[$i]);
+        $columnName = str_replace('_', ' ', $columnName);
+        return $columnName;
     }
 
     public function replaceExportModelFilename()
@@ -196,6 +232,16 @@ class BSControllerProcess
         $this->controllerStub = str_replace(
             '{{ routeCreate }}',
             $this->str_plural(strtolower($this->modelName)) . '.create',
+            $this->controllerStub
+        );
+        return $this;
+    }
+
+    public function replaceRouteEdit()
+    {
+        $this->controllerStub = str_replace(
+            '{{ routeEdit }}',
+            $this->str_plural(strtolower($this->modelName)) . '.edit',
             $this->controllerStub
         );
         return $this;
