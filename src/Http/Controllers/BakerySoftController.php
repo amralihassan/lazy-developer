@@ -85,7 +85,6 @@ class BakerySoftController extends Controller
     public function installUi()
     {
         shell_exec('cd .. && ' . $this->composerRequire . config('packages.ui'));
-        sleep(20);
         shell_exec('cd .. && ' .  config('packages.auth'));
 
         // add dashboard Controller

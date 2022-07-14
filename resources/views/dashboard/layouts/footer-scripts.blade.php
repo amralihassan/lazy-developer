@@ -82,7 +82,7 @@
 <script src="{{ URL::asset('assets-dashboard/js/filupload.js') }}"></script>
 
 <!-- Form Advanced Element -->
-<script src="{{ URL::asset('assets-dashboard/js/formelementadvnced.js') }}"></script>
+{{-- <script src="{{ URL::asset('assets-dashboard/js/formelementadvnced.js') }}"></script> --}}
 <script src="{{ URL::asset('assets-dashboard/js/form-elements.js') }}"></script>
 {{-- <script src="{{ URL::asset('assets-dashboard/js/file-upload.js') }}"></script> --}}
 
