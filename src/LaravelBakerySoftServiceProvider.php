@@ -56,11 +56,6 @@ class LaravelBakerySoftServiceProvider extends ServiceProvider
       __DIR__ . '/../config/packages.php' => config_path('packages.php'),
     ], 'packages.config');
 
-    // $this->publishes([
-    //   __DIR__ . '/stubs/' => base_path('resources/bakery-soft/stubs/'),
-    // ]);
-
-
     $this->publishes([
       __DIR__ . '/../assets/app-assets'     => base_path('public/app-assets/'),
       __DIR__ . '/../assets/assets-dashboard' => base_path('public/assets-dashboard/'),
