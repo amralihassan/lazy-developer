@@ -14,7 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -28,6 +29,53 @@
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
+        }
+
+        /* Style the tab */
+        .tab {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 30%;
+            height: 500px;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 10px;
+            width: 100%;
+            border: 0.2px solid #d4d4d4;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+            background-color: white;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: rgb(232, 111, 111);
+            color: #fff;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: rgb(195, 11, 11);
+            color: #fff;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 12px;
+            border: 1px solid #ccc;
+            width: 70%;
+            border-left: none;
+            height: 500px;
         }
     </style>
 
@@ -174,6 +222,7 @@
             $(this).closest('#inputFormRow').remove();
         });
     </script>
+    @yield('script')
 </body>
 
 </html>
