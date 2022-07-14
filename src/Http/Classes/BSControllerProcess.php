@@ -538,4 +538,18 @@ class BSControllerProcess
     {
         return Str::singular($value);
     }
+
+    public function addToSidebar()
+    {
+        // load tab stub
+        $tabContent = File::get($this->base_path('vendor/bakerysoft/laravelbakerysoft/src/stubs/tab.stub'));
+        // replace
+        $tabContent = str_replace('{{ segment }}', $this->str_plural(strtolower($this->modelName)), $tabContent);
+        $tabContent = str_replace('{{ routeName }}', $this->str_plural(strtolower($this->modelName)) . ".index", $tabContent);
+        $tabContent = str_replace('{{ svgImage }}', "", $tabContent);
+        $tabContent = str_replace('{{ tabName }}', ucfirst($this->str_plural($this->modelName)), $tabContent);
+
+        // load tabs blade to append
+        File::append($this->base_path('resources/views/dashboard/layouts/tabs.blade.php'), $tabContent);
+    }
 }

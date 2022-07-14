@@ -1,0 +1,6 @@
+<li class="slide {{ request()->segment(2) == '{{ segment }}' ? 'active' : '' }}">
+    <a class="side-menu__item" href="{{ route('{{ routeName }}') }}">
+        {{ svgImage }}
+        <span class="side-menu__label">{{ tabName }}</span>
+    </a>
+</li>

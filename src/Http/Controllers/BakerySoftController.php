@@ -203,7 +203,15 @@ class BakerySoftController extends Controller
         // create migration fields
         $this->createFields();
 
+        // add to sidebar
+        $this->addToSidebar();
+
         return redirect()->back();
+    }
+
+    private function addToSidebar()
+    {
+        $this->bsControllerProcess->addToSidebar();
     }
 
     private function publishController()
