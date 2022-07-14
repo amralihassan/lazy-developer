@@ -2,14 +2,14 @@
 
 namespace {{ namespace }};
 //use {{ modelEntityNamespace }};
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use App\Http\Classes\BaseModel;
 
 class {{ class }} extends BaseModel
 {
-    use SoftDeletes;
+    // use SoftDeletes;
     //use {{ class }}Entity;
 
     protected $guarded = [];
