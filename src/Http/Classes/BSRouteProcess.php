@@ -22,7 +22,7 @@ class BSRouteProcess extends BSControllerProcess
     public function createRoutes()
     {
         $webRoute = $this->base_path('routes/app-routes.php');
-        if (!empty($this->routeGroupPrefix) {
+        if (!empty($this->routeGroupPrefix)) {
             $this->group($webRoute);
         } else {
             File::append($webRoute, "\n" . '// ' . ucfirst($this->routeName));
