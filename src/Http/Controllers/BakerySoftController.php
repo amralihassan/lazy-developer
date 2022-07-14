@@ -32,7 +32,6 @@ class BakerySoftController extends Controller
         $data['modelName'] = request('model_name');
         $data['viewPath'] = request('view_path');
         $data['routeGroupPrefix'] = request('route_group_prefix');
-        $data['routeGroupNamespace'] = request('route_group_namespace');
         $data['routeApi'] = request('route_api');
         $data['routePath'] = request('route_path');
         $data['runMigration'] = request('run_migration');

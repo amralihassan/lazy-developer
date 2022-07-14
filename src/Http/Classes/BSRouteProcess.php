@@ -11,21 +11,18 @@ class BSRouteProcess extends BSControllerProcess
     public $modelNamespace;
     public $routeName;
     public $routeGroupPrefix;
-    public $routeGroupNamespace;
-
 
     function __construct($data)
     {
         parent::__construct($data);
         $this->routeGroupPrefix =  $data['routeGroupPrefix'];
-        $this->routeGroupNamespace =  $data['routeGroupNamespace'];
         $this->routeName =  $this->str_plural($data['modelName']);
     }
 
     public function createRoutes()
     {
         $webRoute = $this->base_path('routes/app-routes.php');
-        if (!empty($this->routeGroupPrefix) || !empty($this->routeGroupNamespace)) {
+        if (!empty($this->routeGroupPrefix) {
             $this->group($webRoute);
         } else {
             File::append($webRoute, "\n" . '// ' . ucfirst($this->routeName));
@@ -43,14 +40,13 @@ class BSRouteProcess extends BSControllerProcess
     private function group($webRoute)
     {
         $prefix = !empty($this->routeGroupPrefix) ? '"prefix" => "' . $this->routeGroupPrefix . '",' : '';
-        $namespace = !empty($this->routeGroupNamespace) ? '"namespace" => "' . $this->routeGroupNamespace . '"' : '';
         $routes  = "\n" . "\t" . '// ' . ucfirst($this->routeName);
         $routes .= "\n" . "\t" . implode("\n", $this->addResourceRoute());
         $routes .= "\n" . "\t" . implode("\n", $this->addDeleteRoute());
         $routes .= "\n" . "\t" . implode("\n", $this->addImportRoute());
         $routes .= "\n" . "\t" . implode("\n", $this->addExportRoute());
 
-        $group = 'Route::group([' . $prefix  . $namespace . '], function () {' . $routes . "\n" . '});';
+        $group = 'Route::group([' . $prefix  . '], function () {' . $routes . "\n" . '});';
         File::append($webRoute, "\n" . $group);
     }
 
