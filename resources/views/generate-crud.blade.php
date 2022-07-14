@@ -4,7 +4,7 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="{{ asset('images/logo.jpg') }}" alt="" width="72"
+                <img class="d-block mx-auto mb-4" src="{{ asset('vendor/bakerysoft/images/logo.jpg') }}" alt="" width="72"
                     height="57">
                 <h2>Generate CRUD</h2>
                 {{-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form
