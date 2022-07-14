@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Classes;
+namespace BakerySoft\LaravelBakerySoft\Http\Classes;
 
 use Illuminate\Database\Eloquent\Model;
 

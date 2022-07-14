@@ -58,9 +58,9 @@ class BSControllerProcess
     {
         $rows = 'check,DT_RowIndex,';
         for ($i = 0; $i < count($this->columnsTitles); $i++) {
-            $rows .=  $this->columnsTitles[$i];
+            $rows .=  $this->columnsTitles[$i] . ',';
         }
-        $rows .= ',action';
+        $rows .= 'action';
 
         return $rows;
     }
