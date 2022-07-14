@@ -1,10 +1,10 @@
-@extends('bakerysoft::bakerysoft-dashboard')
+@extends('bakery-soft-dashboard')
 
 @section('content')
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="{{ asset('vendor/bakerysoft/images/logo.jpg') }}" alt="" width="72"
+                <img class="d-block mx-auto mb-4" src="{{ asset('images/logo.jpg') }}" alt="" width="72"
                     height="57">
                 <h2>Install Packages</h2>
                 {{-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form
@@ -12,7 +12,7 @@
                 it.</p> --}}
             </div>
 
-            <form action="{{ url('bakerysoft/install/laravel/ui') }}" method="post">
+            <form action="{{ route('install-ui') }}" method="post">
                 @csrf
                 <h4>Laravel/ui</h4>
                 <p>
@@ -32,7 +32,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakerysoft/install/yajra') }}" method="post">
+            <form action="{{ route('install-yajra') }}" method="post">
                 @csrf
                 <h4>jQuery DataTables API for Laravel</h4>
                 <p>
@@ -44,13 +44,13 @@
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn {{ $yajra['installed'] ? 'btn-success' : 'btn-outline-success' }}"
-                            {{ $laratrust['installed'] ? 'disabled' : '' }} type="submit"
-                            id="button-addon2">{{ $laratrust['installed'] ? 'Installed' : 'Install' }}</button>
+                            {{ $yajra['installed'] ? 'disabled' : '' }} type="submit"
+                            id="button-addon2">{{ $yajra['installed'] ? 'Installed' : 'Install' }}</button>
                     </div>
                 </div>
             </form>
 
-            <form action="{{ url('bakerysoft/install/laratrust') }}" method="post">
+            <form action="{{ route('install-laratrust') }}" method="post">
                 @csrf
                 <h4>Laratrust</h4>
                 <p>
@@ -68,7 +68,7 @@
                 </div>
             </form>
 
-            <form action="{{ url('bakerysoft/install/image') }}" method="post">
+            <form action="{{ route('install-image') }}" method="post">
                 @csrf
                 <h4>Intervention Image</h4>
                 <p>
@@ -81,13 +81,13 @@
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn {{ $image['installed'] ? 'btn-success' : 'btn-outline-success' }}"
-                            {{ $laratrust['installed'] ? 'disabled' : '' }} type="submit"
-                            id="button-addon2">{{ $laratrust['installed'] ? 'Installed' : 'Install' }}</button>
+                            {{ $image['installed'] ? 'disabled' : '' }} type="submit"
+                            id="button-addon2">{{ $image['installed'] ? 'Installed' : 'Install' }}</button>
                     </div>
                 </div>
             </form>
 
-            <form action="{{ url('bakerysoft/install/realrashid') }}" method="post">
+            <form action="{{ route('install-realrashid') }}" method="post">
                 @csrf
                 <h4>SweetAlert</h4>
                 <p>
@@ -99,13 +99,13 @@
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn {{ $realrashid['installed'] ? 'btn-success' : 'btn-outline-success' }}"
-                            {{ $laratrust['installed'] ? 'disabled' : '' }} type="submit"
-                            id="button-addon2">{{ $laratrust['installed'] ? 'Installed' : 'Install' }}</button>
+                            {{ $realrashid['installed'] ? 'disabled' : '' }} type="submit"
+                            id="button-addon2">{{ $realrashid['installed'] ? 'Installed' : 'Install' }}</button>
                     </div>
                 </div>
             </form>
 
-            <form action="{{ url('bakerysoft/install/excel') }}" method="post">
+            <form action="{{ route('install-excel') }}" method="post">
                 @csrf
                 <h4>Laravel Excel</h4>
                 <p>
@@ -117,8 +117,8 @@
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn {{ $excel['installed'] ? 'btn-success' : 'btn-outline-success' }}"
-                            {{ $laratrust['installed'] ? 'disabled' : '' }} type="submit"
-                            id="button-addon2">{{ $laratrust['installed'] ? 'Installed' : 'Install' }}</button>
+                            {{ $excel['installed'] ? 'disabled' : '' }} type="submit"
+                            id="button-addon2">{{ $excel['installed'] ? 'Installed' : 'Install' }}</button>
                     </div>
                 </div>
             </form>
