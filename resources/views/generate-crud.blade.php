@@ -3,14 +3,14 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="{{ asset('vendor/bakerysoft/images/logo.jpg') }}" alt="" width="72"
+                <img class="d-block mx-auto mb-4" src="{{ asset('images/logo.jpg') }}" alt="" width="72"
                     height="57">
                 <h2>Generate CRUD</h2>
                 {{-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form
                     group has a validation state that can be triggered by attempting to submit the form without completing
                     it.</p> --}}
             </div>
-            <form action="{{ url('/bakerysoft/generate') }}" method="post">
+            <form action="{{ route('generate') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -62,11 +62,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label><strong>What type do you want to generate?</strong></label><br>
                             <input type="checkbox" name="route_wep" value="1" checked disabled> Web <br>
                             <input type="checkbox" name="route_api" value="1"> Api
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label><strong>Apply soft delete feature?</strong></label><br>
+                            <input type="checkbox" name="soft_delete" value="1"> Yes
                         </div>
                     </div>
 
@@ -109,8 +116,6 @@
                                     <option value="mediumText">mediumText</option>
                                     <option value="timestamps">timestamps</option>
                                     <option value="longText">longText</option>
-                                    <option value="nullableTimestamps">nullableTimestamps</option>
-                                    <option value="softDeletes">softDeletes</option>
                                     <option value="dateTime">dateTime</option>
                                     <option value="char">char</option>
                                     <option value="decimal">decimal</option>
@@ -131,19 +136,25 @@
                                 </div>
 
                             </div>
-                            <div class="form-group enum" style = "display:none">
+                            <div class="form-group enum" style="display:none">
                                 <div class="row">
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value1[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value1[]"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value2[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value2[]"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value3[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value3[]"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value4[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value4[]"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value5[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value5[]"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-2"><input type="text" name="enum_value0[]value6[]" class="form-control">
+                                    <div class="col-md-2"><input type="text" name="enum_value0[]value6[]"
+                                            class="form-control">
                                     </div>
                                 </div>
                             </div>

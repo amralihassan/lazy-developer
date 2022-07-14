@@ -33,7 +33,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{{ asset('vendor/bakerysoft/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 
 <body>
@@ -59,19 +59,19 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a target="blank" class="nav-link active" aria-current="page" href="/">
+                            <a target="blank" class="nav-link active" aria-current="page" href="/admin/dashboard">
                                 <span data-feather="home"></span>
-                                Dashboard
+                                Preview Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/bakerysoft/install/packages') }}">
+                            <a class="nav-link" href="{{ route('packages') }}">
                                 <span data-feather="file"></span>
                                 Install Packages
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('bakerysoft/generate-crud') }}">
+                            <a class="nav-link" href="{{ route('load.crud') }}">
                                 <span data-feather="file"></span>
                                 Generate CRUD
                             </a>
@@ -89,7 +89,7 @@
         <p class="mb-1">&copy; 2022 Backery Soft</p>
     </footer>
     <script>
-        var dataType ;
+        var dataType;
         // add row
         var num = 1;
         $("#addRow").click(function() {
@@ -116,8 +116,6 @@
                                     <option value="mediumText">mediumText</option>
                                     <option value="timestamps">timestamps</option>
                                     <option value="longText">longText</option>
-                                    <option value="nullableTimestamps">nullableTimestamps</option>
-                                    <option value="softDeletes">softDeletes</option>
                                     <option value="dateTime">dateTime</option>
                                     <option value="char">char</option>
                                     <option value="decimal">decimal</option>
