@@ -8,8 +8,9 @@
             "email": "amr.meghaed@bakerysoft.net",
             "homepage": "https://.bakerysoft.net"
         }
-    ],
-    "minimum-stability": "dev",
+    ],    
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "keywords": [
         "bakery soft laravel crud generator"
     ],
